@@ -234,3 +234,81 @@ fn constant(){
     println!("{} {} {}", MAXIMUM, MAXIMUM, MINIMUM);
 }
 
+/**
+ * Variable Scope
+ * 
+ * Variable Scope is the area of code where a variable is valid.
+ * Variable Scope is determined by the `{}`.
+ */
+#[test]
+fn variable_scope(){
+    let ari = 1;
+
+    { // Inner scope
+        println!("{}", ari);
+        let cool = 2;
+        println!("{}", cool);
+    }
+
+    // println!("{}", kurniawan); // Error
+}
+
+
+fn function_a(){
+    let a = 10; // It's a stack variable. It's size is known at compile time. It is stored in the stack.
+    let b = String::from("Hello"); // String:: is a data type that size is not known at compile time. It is stored in the heap.
+
+    println!("{} {}", a, b);
+}
+
+fn function_b(){
+    let a = 10;
+    let b = String::from("World");
+    println!("{} {}", a, b);
+}
+
+/**
+ * Stack and Heap
+ *
+ * Stack is a data structure that stores values.
+ * Stack is used to store values that size is known at compile time.
+ * 
+ * Heap is a data structure that stores values.
+ * Heap is used to store values that size is not known at compile time.
+ */
+#[test]
+fn stack_heap(){
+    function_a();
+    function_b();
+}
+
+/**
+ * String slice (&str)
+ *
+ * String slice is a reference to a part of a string.
+ * String slice is used to get a part of a string.
+ */
+#[test]
+fn string(){
+    let name:&str = "       Ari Cool ";
+    let trim:&str = name.trim();
+
+    println!("{}", name);
+    println!("{}", trim);
+}
+
+/**
+ * String Type
+ *
+ * String Type is a data type that stores a string.
+ * String Type is used to store a string.
+ */
+#[test]
+fn string_type(){
+    let mut name = String::from("Awesome Ari");
+    name.push_str(" Cool"); // It's a method. It's used to add a string to a string.
+    println!("{}", name);
+
+    let budi = name.replace("Ari", "Cool"); // It's a method. It's used to replace a string with another string.
+    println!("{}", budi);
+}
