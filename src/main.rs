@@ -158,3 +158,21 @@ fn tupple() {
     data_mutable.0 = 10;
     println!("{:?}", data_mutable);
 }
+
+/**
+ * Unit
+ * 
+ * Unit is a type that has no value.
+ */
+fn unit(){
+    println!("This is a unit");
+}
+
+#[test]
+fn test_unit(){
+    let result = unit();
+    println!("{:?}", result); // () is a unit
+
+    let test = ();
+    println!("{:?}", test); // () is a unit
+}
