@@ -21,10 +21,9 @@ fn test_variable() {
     println!("Hello, {}!", name);
 }
 
-
 /**
  * Mutable Variables
- * 
+ *
  * Variables can be mutable, meaning they can be changed.
  * To make a variable mutable, you need to use the `mut` keyword.
  */
@@ -57,14 +56,14 @@ fn shadowing() {
 
 /**
  * Data Types
- * 
+ *
  * Rust has a 2 types of data types:
  * 1. Scalar (single value)
  * 2. Compound (more than one value)
  */
 #[test]
 fn explicit() {
-    let age:i32 = 20;
+    let age: i32 = 20;
     println!("{}", age);
 }
 
@@ -79,10 +78,10 @@ fn number() {
 
 /**
  * Number Conversion
- * 
+ *
  * Rust has a number conversion, meaning you can convert a number to another number.
  * To convert a number, you need to use the `as` keyword.
- * 
+ *
  * Tips:
  * 1. The number conversion is not always accurate.
  * 2. The number conversion is not always possible.
@@ -95,14 +94,14 @@ fn number_conversion() {
     let a: i8 = 10;
     println!("{}", a);
 
-    let b:i16 = a as i16;
+    let b: i16 = a as i16;
     println!("{}", b);
 
-    let c:i32 = b as i32;
+    let c: i32 = b as i32;
     println!("{}", c);
 
-    let d:i64 = 1000000000;
-    let e:i8 = d as i8;
+    let d: i64 = 1000000000;
+    let e: i8 = d as i8;
     println!("{}", e);
 }
 
@@ -118,19 +117,19 @@ fn comparation() {
 #[test]
 fn char_type() {
     let char1 = "I'm a string not a char";
-    let char2:char = 'b';
+    let char2: char = 'b';
     println!("{}\n{}", char1, char2);
 }
 
-/** 
+/**
  * Tuple
- * 
+ *
  * Tuple is a collection of values.
  * Tuple is immutable by default.
  */
 #[test]
 fn tupple() {
-    let data:(i32, bool, &str, f64) = (1, true, "Hello Everyone!", 93.12);
+    let data: (i32, bool, &str, f64) = (1, true, "Hello Everyone!", 93.12);
     println!("{:?}", data);
 
     // let a = data.0;
@@ -150,15 +149,15 @@ fn tupple() {
 
 /**
  * Unit
- * 
+ *
  * Unit is a type that has no value.
  */
-fn unit(){
+fn unit() {
     println!("This is a unit");
 }
 
 #[test]
-fn test_unit(){
+fn test_unit() {
     let result = unit();
     println!("{:?}", result); // () is a unit
 
@@ -173,8 +172,8 @@ fn test_unit(){
  * Array is immutable by default.
  */
 #[test]
-fn array(){
-    let array:[i32; 5] = [1,2,3,4,5];
+fn array() {
+    let array: [i32; 5] = [1, 2, 3, 4, 5];
     println!("{:?}", array);
 
     // let a  = array[0];
@@ -186,7 +185,7 @@ fn array(){
     let [a, b, c, d, e] = array;
     println!("{} {} {} {} {}", a, b, c, d, e);
 
-    let mut array_mutable:[i32; 5] = [1,2,3,4,5];
+    let mut array_mutable: [i32; 5] = [1, 2, 3, 4, 5];
     println!("{:?}", array_mutable);
 
     array_mutable[0] = 10;
@@ -194,7 +193,10 @@ fn array(){
 
     let array_1_length = array.len();
     let array_2_length = array_mutable.len();
-    println!("The length of array is {} and {}", array_1_length, array_2_length);
+    println!(
+        "The length of array is {} and {}",
+        array_1_length, array_2_length
+    );
 }
 
 /**
@@ -204,12 +206,8 @@ fn array(){
  * Two Dimensional Array is immutable by default.
  */
 #[test]
-fn two_dimensional_array(){
-    let matrix:[[i32; 3]; 3] = [
-        [1,2,3],
-        [4,5,6],
-        [7,8,9]
-    ];
+fn two_dimensional_array() {
+    let matrix: [[i32; 3]; 3] = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
     println!("{:?}", matrix);
     // print 1,5,9
     println!("{:?}", matrix[0][0]);
@@ -217,34 +215,35 @@ fn two_dimensional_array(){
     println!("{:?}", matrix[2][2]);
 }
 
-/** 
+/**
  * Constants
  *
  * Constants are immutable by default.
  * Constants are declared with the `const` keyword.
  */
 const MAXIMUMMM: i32 = 100;
-const MINIMUM:i32 = 0;
+const MINIMUM: i32 = 0;
 
 #[test]
-fn constant(){
+fn constant() {
     println!("{}", MAXIMUMMM);
 
-    const MAXIMUM:i32 = 100;
+    const MAXIMUM: i32 = 100;
     println!("{} {} {}", MAXIMUM, MAXIMUM, MINIMUM);
 }
 
 /**
  * Variable Scope
- * 
+ *
  * Variable Scope is the area of code where a variable is valid.
  * Variable Scope is determined by the `{}`.
  */
 #[test]
-fn variable_scope(){
+fn variable_scope() {
     let ari = 1;
 
-    { // Inner scope
+    {
+        // Inner scope
         println!("{}", ari);
         let cool = 2;
         println!("{}", cool);
@@ -253,15 +252,14 @@ fn variable_scope(){
     // println!("{}", kurniawan); // Error
 }
 
-
-fn function_a(){
+fn function_a() {
     let a = 10; // It's a stack variable. It's size is known at compile time. It is stored in the stack.
     let b = String::from("Hello"); // String:: is a data type that size is not known at compile time. It is stored in the heap.
 
     println!("{} {}", a, b);
 }
 
-fn function_b(){
+fn function_b() {
     let a = 10;
     let b = String::from("World");
     println!("{} {}", a, b);
@@ -272,12 +270,12 @@ fn function_b(){
  *
  * Stack is a data structure that stores values.
  * Stack is used to store values that size is known at compile time.
- * 
+ *
  * Heap is a data structure that stores values.
  * Heap is used to store values that size is not known at compile time.
  */
 #[test]
-fn stack_heap(){
+fn stack_heap() {
     function_a();
     function_b();
 }
@@ -289,9 +287,9 @@ fn stack_heap(){
  * String slice is used to get a part of a string.
  */
 #[test]
-fn string(){
-    let name:&str = "       Ari Cool ";
-    let trim:&str = name.trim();
+fn string() {
+    let name: &str = "       Ari Cool ";
+    let trim: &str = name.trim();
 
     println!("{}", name);
     println!("{}", trim);
@@ -304,11 +302,168 @@ fn string(){
  * String Type is used to store a string.
  */
 #[test]
-fn string_type(){
+fn string_type() {
     let mut name = String::from("Awesome Ari");
     name.push_str(" Cool"); // It's a method. It's used to add a string to a string.
     println!("{}", name);
 
     let budi = name.replace("Ari", "Cool"); // It's a method. It's used to replace a string with another string.
     println!("{}", budi);
+}
+
+/**
+ * Ownership Rules
+ *
+ * Ownership Rules is a rule that determines how a value is stored in memory.
+ * Ownership Rules is used to determine how a value is stored in memory.
+ */
+#[test]
+fn ownership_rules() {
+    let a = 10;
+
+    {
+        let b = 20;
+        println!("{}", b);
+    }
+
+    println!("{}", a);
+}
+
+/**
+ * Data Copy
+ *
+ * Data Copy is a rule that determines how a value is stored in memory.
+ * Data Copy is used to determine how a value is stored in memory.
+ */
+#[test]
+fn data_copy() {
+    // if fixed size, it's copied.
+    // if not fixed size, it's moved.
+    let a = 10;
+    let b = a; // Copy data from a to b
+    println!("{} {}", a, b);
+}
+
+/**
+ * Ownership Movement
+ *
+ * Ownership Movement is a rule that determines how a value is stored in memory.
+ * Ownership Movement is used to determine how a value is stored in memory.
+ */
+#[test]
+fn ownership_movement() {
+    let name1 = String::from("Hello World! Welcome to Rust!");
+
+    let name2 = name1; // Move data from name1 to name2
+    println!("{}", name2);
+    // println!("{}", name1); // Error
+}
+
+/**
+ * Clone
+ *
+ * Clone is a method that is used to clone a value.
+ * Clone is used to clone a value.
+ */
+#[test]
+fn clone() {
+    let name1 = String::from("Hello World! Welcome to Rust!");
+    let name2 = name1.clone(); // Clone data from name1 to name2
+    println!("{}", name2);
+    println!("{}", name1);
+}
+
+/**
+ * If Expression
+ *
+ * If Expression is a condition that is used to determine the flow of the program.
+ * If Expression is used to determine the flow of the program.
+ */
+#[test]
+fn if_expression() {
+    let number = 10;
+    if number > 10 {
+        println!("Number is greater than 10");
+    } else if number < 10 {
+        println!("Number is less than 10");
+    } else {
+        println!("Number is equal to 10");
+    }
+
+    // Let statement
+    let variable1 = 19;
+    let result;
+
+    if variable1 > 10 {
+        result = "OK ++ 10";
+    } else {
+        result = "Nope -- 10";
+    }
+    println!("{}", result);
+}
+
+/**
+ * Loop Expression
+ *
+ * Loop Expression is a condition that is used to determine the flow of the program.
+ * Loop Expression is used to determine the flow of the program.
+ */
+#[test]
+fn loop_expression() {
+    let mut counter = 0;
+    loop {
+        counter += 1;
+        if counter > 10 {
+            break;
+        } else if counter == 5  {
+            continue;
+        }
+    }
+
+    println!("Counter: {}", counter);
+}
+
+/**
+ * Loop Return Value
+ *
+ * Loop Return Value is a condition that is used to determine the flow of the program.
+ * Loop Return Value is used to determine the flow of the program.
+ */
+#[test]
+fn loop_return_value(){
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+        if counter > 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("Counter: {}", result);
+}
+
+/**
+ * Loop Label
+ *
+ * Loop Label is a condition that is used to determine the flow of the program.
+ * Loop Label is used to determine the flow of the program.
+ */
+#[test]
+fn loop_label() {
+    let mut number = 10;
+    'outer: loop { // 'outer' is a label
+        let mut i = 1;
+        loop {
+            if number > 10 {
+                break 'outer;
+            }
+
+            println!("{} {} {}", number, i, number * i );
+            i += 1;
+            if i > 10 {
+                break;
+            }
+        }
+        number += 1;
+    }
 }
