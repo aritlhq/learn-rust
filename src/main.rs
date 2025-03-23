@@ -458,12 +458,39 @@ fn loop_label() {
                 break 'outer;
             }
 
-            println!("{} {} {}", number, i, number * i );
+            println!("{} x {} = {}", number, i, number * i );
             i += 1;
             if i > 10 {
                 break;
             }
         }
         number += 1;
+    }
+}
+
+/**
+ * While Loop
+ *
+ * While Loop is a condition that is used to determine the flow of the program.
+ * While Loop is used to determine the flow of the program.
+ */
+#[test]
+fn while_loop() {
+    let mut counter = 0;
+    while counter < 10 {
+        counter += 1;
+        println!("Counter: {}", counter);
+    }
+
+    // With break and continue
+    let mut counter = 0;
+    while counter < 10 {
+        counter += 1;
+        if counter == 5 {
+            continue;
+        } else if counter == 8 {
+            break;
+        }
+        println!("Counter with break and continue: {}", counter);
     }
 }
