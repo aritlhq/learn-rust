@@ -127,17 +127,6 @@ fn char_type() {
  * 
  * Tuple is a collection of values.
  * Tuple is immutable by default.
- * Tuple is fixed size.
- * Tuple is ordered.
- * Tuple is heterogeneous.
- * Tuple is not generic.
- * Tuple is not iterable.
- * Tuple is not mutable.
- * Tuple is not mutable by default.
- * Tuple is not mutable by reference.
- * Tuple is not mutable by reference mut.
- * Tuple is not mutable by reference mut.
- * Tuple is not mutable by reference mut.
  */
 #[test]
 fn tupple() {
@@ -175,4 +164,55 @@ fn test_unit(){
 
     let test = ();
     println!("{:?}", test); // () is a unit
+}
+
+/**
+ * Array
+ *
+ * Array is a collection of values.
+ * Array is immutable by default.
+ */
+#[test]
+fn array(){
+    let array:[i32; 5] = [1,2,3,4,5];
+    println!("{:?}", array);
+
+    // let a  = array[0];
+    // let b  = array[1];
+    // let c  = array[2];
+    // let d  = array[3];
+    // let e  = array[4];
+
+    let [a, b, c, d, e] = array;
+    println!("{} {} {} {} {}", a, b, c, d, e);
+
+    let mut array_mutable:[i32; 5] = [1,2,3,4,5];
+    println!("{:?}", array_mutable);
+
+    array_mutable[0] = 10;
+    println!("{:?}", array_mutable);
+
+    let array_1_length = array.len();
+    let array_2_length = array_mutable.len();
+    println!("The length of array is {} and {}", array_1_length, array_2_length);
+}
+
+/**
+ * Two Dimensional Array
+ *
+ * Two Dimensional Array is a collection of values.
+ * Two Dimensional Array is immutable by default.
+ */
+#[test]
+fn two_dimensional_array(){
+    let matrix:[[i32; 3]; 3] = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ];
+    println!("{:?}", matrix);
+    // print 1,5,9
+    println!("{:?}", matrix[0][0]);
+    println!("{:?}", matrix[1][1]);
+    println!("{:?}", matrix[2][2]);
 }
