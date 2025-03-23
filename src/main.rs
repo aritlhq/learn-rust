@@ -216,3 +216,21 @@ fn two_dimensional_array(){
     println!("{:?}", matrix[1][1]);
     println!("{:?}", matrix[2][2]);
 }
+
+/** 
+ * Constants
+ *
+ * Constants are immutable by default.
+ * Constants are declared with the `const` keyword.
+ */
+const MAXIMUMMM: i32 = 100;
+const MINIMUM:i32 = 0;
+
+#[test]
+fn constant(){
+    println!("{}", MAXIMUMMM);
+
+    const MAXIMUM:i32 = 100;
+    println!("{} {} {}", MAXIMUM, MAXIMUM, MINIMUM);
+}
+
