@@ -494,3 +494,78 @@ fn while_loop() {
         println!("Counter with break and continue: {}", counter);
     }
 }
+
+/**
+ * For Loop
+ *
+ * For Loop is a condition that is used to determine the flow of the program.
+ * For Loop is used to determine the flow of the program.
+ */
+#[test]
+fn array_iteration_for_loop() {
+    let array = [1, 2, 3, 4, 5];
+    let mut index = 0;
+
+    while index < array.len() {
+        println!("The first way:{}", array[index]);
+        index += 1;
+    }
+}
+
+#[test]
+fn array_iteration_for_loop_2() {
+    let array = [1, 2, 3, 4, 5];
+    for element in array {
+        println!("The second way: {}", element);
+    }
+}
+
+/**
+ * Exclusive Range
+ *
+ * Exclusive Range is a condition that is used to determine the flow of the program.
+ * Exclusive Range is used to determine the flow of the program.
+ */
+#[test]
+fn exclusive_range(){
+    let array: [&str; 5] = ["Ari", "Cool", "Hello World!", "Coding", "Rust"];
+
+    let range = 0..5; // Exclusive range
+    println!("START: {}", range.start);
+    println!("END: {}", range.end);
+
+    for i in range {
+        println!("With variable named 'range': {}", array[i]);
+        println!("With variable named 'range': {}", i);
+    }
+
+    for i in 0..5 {
+        println!("With 0..5: {}", array[i]);
+        println!("With 0..5: {}", i);
+    }
+}
+
+/**
+ * Inclusive Range
+ *
+ * Inclusive Range is a condition that is used to determine the flow of the program.
+ * Inclusive Range is used to determine the flow of the program.
+ */
+#[test]
+fn inclusive_range(){
+    let array = ["Ari", "Cool", "Hello World!", "Coding", "Rust"];
+
+    let range = 0..=4; // Inclusive range
+    // Can't directly access start of RangeInclusive, use alternative approaches if needed
+    println!("START: {}", range.start()); // Using start() method to access the start value
+    println!("END: {}", range.end()); // * named dereference operator to get the value
+
+    for i in range {
+        println!("With variable named 'range': {}", array[i]);
+        println!("With variable named 'range': {}", i);
+    }
+    for i in 0..=4 {
+        println!("With 0..=4: {}", array[i]);
+        println!("With 0..=4: {}", i);
+    }
+}
