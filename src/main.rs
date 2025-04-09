@@ -152,7 +152,7 @@ fn tupple() {
  *
  * Unit is a type that has no value.
  */
-fn unit() {
+fn unit() { // This is unit type
     println!("This is a unit");
 }
 
@@ -568,4 +568,100 @@ fn inclusive_range(){
         println!("With 0..=4: {}", array[i]);
         println!("With 0..=4: {}", i);
     }
+}
+
+/**
+ * Function
+ *
+ * Function is a condition that is used to determine the flow of the program.
+ * Function is used to determine the flow of the program.
+ */
+#[test]
+fn function_say_hello() {
+    println!("Hello World!");
+}
+
+#[test]
+fn test_say_hello() {
+    function_say_hello();   
+}
+
+// Parameter
+fn say_goodbye(first_name:&str, last_name:&str) {
+    println!("Goodbye {} {}!", first_name, last_name);
+}
+
+#[test]
+fn test_say_goodbye() {
+    say_goodbye("Ari", "Cool!!");
+}
+
+// Return Value
+fn factorial_loop(n:i32) -> i32{
+    if n < 1 {
+        return 0;
+    }
+
+    let mut result = 1;
+    for i in 1..=n {
+        result *= i;
+    }
+    result
+}
+
+#[test]
+fn test_factorial_loop() {
+    let result = factorial_loop(5);
+    println!("{}", result);
+
+    let result = factorial_loop(-10);
+    println!("{}", result);
+}
+
+/**
+ * Recursive Function
+ *
+ * Recursive Function is a condition that is used to determine the flow of the program.
+ * Recursive Function is used to determine the flow of the program.
+ */
+fn print_text(value: String, times: u32){
+    if times == 0 {
+        return;
+    } else {
+        println!("{}", value);
+    }
+
+    print_text(value, times - 1);
+}
+
+#[test]
+fn test_print_text(){
+    print_text(String::from("Ari"), 5);
+}
+
+fn factorial_recursive(n: u32) -> u32 {
+    if n == 1 {
+        return  1;
+    }
+
+    n * factorial_recursive(n - 1)
+}
+
+#[test]
+fn test_factorial_recursive(){
+    let result = factorial_recursive(5);
+    println!("{}", result);
+}
+
+/**
+ * Closure
+ *
+ * Closure is a condition that is used to determine the flow of the program.
+ * Closure is used to determine the flow of the program.
+ */
+#[test]
+fn test_try_recursive(){
+    (|| {
+        println!("Hello Ruster!")
+    })();
 }
